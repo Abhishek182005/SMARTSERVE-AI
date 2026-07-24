@@ -1,0 +1,10 @@
+import express from 'express';
+import { getSalesReport, getEmployeeReport, getInventoryReport, getCustomerReport, getRevenueByMonth } from '../controllers/reportController.js';
+import { protect } from '../middleware/authMiddleware.js';
+const router = express.Router();
+router.get('/sales', protect, getSalesReport);
+router.get('/employees', protect, getEmployeeReport);
+router.get('/inventory', protect, getInventoryReport);
+router.get('/customers', protect, getCustomerReport);
+router.get('/revenue-by-month', protect, getRevenueByMonth);
+export default router;
